@@ -1,25 +1,25 @@
 # Git Cheatsheet
 ## Index
-- [How to set up a global ignore file](#▶️-how-to-set-up-a-global-ignore-file)
-- [Disable status advice](#▶️-disable-status-advice)
-- [Automatically create upstream branches](#▶️-automatically-create-upstream-branches)
-- [How to enable autocorrect](#▶️-how-to-enable-autocorrect)
-- [Cleaning up local git branches deleted on a remote](#▶️-cleaning-up-local-git-branches-deleted-on-a-remote)
-- [How to alias “master” as “main”](#▶️-how-to-alias-master-as-main)
-- [How to undo commits](#▶️-how-to-undo-commits)
-- [How to show and copy commit SHAs](#▶️-how-to-show-and-copy-commit-shas)
-- [How to automatically stash while rebasing or merging](#▶️-how-to-automatically-stash-while-rebasing-or-merging)
-- [Check for missing commits from a remote](#▶️-check-for-missing-commits-from-a-remote)
-- [Comparing generated files before and after changes with git diff](#▶️-comparing-generated-files-before-and-after-changes-with-git-diff)
-- [How to run a command on many files in a git repository](#▶️-how-to-run-a-command-on-many-files-in-a-git-repository)
-- [Find usage for specific codes](#▶️-find-usage-for-specific-codes)
-- [Check history with `git blame`](#▶️-check-history-with-git-blame)
-- [Rebase stacked branches](#▶️-rebase-stacked-branches)
-- [How to add changes to stacked branches](#▶️-how-to-add-changes-to-stacked-branches)
-- [How to skip hooks](#▶️-how-to-skip-hooks)
-- [Hooks](#▶️-hooks)
+- [How to set up a global ignore file](#how-to-set-up-a-global-ignore-file)
+- [Disable status advice](#disable-status-advice)
+- [Automatically create upstream branches](#automatically-create-upstream-branches)
+- [How to enable autocorrect](#how-to-enable-autocorrect)
+- [Cleaning up local git branches deleted on a remote](#cleaning-up-local-git-branches-deleted-on-a-remote)
+- [How to alias “master” as “main”](#how-to-alias-master-as-main)
+- [How to undo commits](#how-to-undo-commits)
+- [How to show and copy commit SHAs](#how-to-show-and-copy-commit-shas)
+- [How to automatically stash while rebasing or merging](#how-to-automatically-stash-while-rebasing-or-merging)
+- [Check for missing commits from a remote](#check-for-missing-commits-from-a-remote)
+- [Comparing generated files before and after changes with git diff](#comparing-generated-files-before-and-after-ahanges-with-git-diff)
+- [How to run a command on many files in a git repository](#how-to-run-a-rommand-on-many-files-in-a-git-repository)
+- [Find usage for specific codes](#find-usage-for-specific-codes)
+- [Check history with `git blame`](#check-history-with-git-blame)
+- [Rebase stacked branches](#rebase-stacked-branches)
+- [How to add changes to stacked branches](#how-to-add-changes-to-stacked-branches)
+- [How to skip hooks](#how-to-skip-hooks)
+- [Hooks](#hooks)
 
-## ▶️ How to set up a global ignore file
+## How to set up a global ignore file
 Make your global ignore file
 ```bash
 mkdir -p $HOME/.config/git
@@ -69,7 +69,7 @@ tags
 [._]*.un~
 ```
 
-## ▶️ Disable status advice
+## Disable status advice
 Many Git commands output “advice”, with hints about which commands you could run next. Most notably, git status gives you advice for what to do about files in each state:
 ```
 git status
@@ -111,7 +111,7 @@ Untracked files:
   pine.txt
 ````
 
-## ▶️ Automatically create upstream branches
+## Automatically create upstream branches
 started a new branch, worked hard on initial commits, and you’re ready to send it for review. You try to push and:
 ```
 git push
@@ -139,7 +139,7 @@ That command will add to your global configuration file (`~/.git/config/git` or 
 ```
 From then on, git push on new branches will automatically create the branch.
 
-## ▶️ How to enable autocorrect
+## How to enable autocorrect
 
 By default, if you mistype a Git command, it will list similar commands that you might have meant:
 ```
@@ -189,7 +189,7 @@ Run 'commit' instead [y/N]? y
 [main 2183b892e] More awesome work
 ```
 
-## ▶️ Cleaning up local git branches deleted on a remote
+## Cleaning up local git branches deleted on a remote
 
 clean up squash-merging or branches that not in remote but have in locally.
 
@@ -234,7 +234,7 @@ clean up squash-merging or branches that not in remote but have in locally.
   git sync
   ```
 
-## ▶️ How to alias “master” as “main”
+## How to alias “master” as “main”
 Git 2.28 (2020-07-27) introduced the init.defaultBranch option, which controlls the default branch name for repos created with git init:
 
 ```
@@ -310,7 +310,7 @@ git remote set-head origin -a
 git fetch --prune
 ```
 
-## ▶️ How to undo commits
+## How to undo commits
 - **How to undo the last commit**
   ```bash
   git reset @~
@@ -375,7 +375,7 @@ git fetch --prune
   > Note that its SHA has changed (from 1c13e39 to bd86d96). This is because it has been recreated. Git’s history is immutable, so rebasing recreates commits, reusing the same message, authorship, and changes, but new parents.
 
 
-## ▶️ How to show and copy commit SHAs
+## How to show and copy commit SHAs
 You can use `git rev-parse` to show the SHA of the current Git commit:
 ```
 git rev-parse @
@@ -412,7 +412,7 @@ git rev-parse --sq @
 '44a4ec1ffe634759fd25a9e87a6c555fe83f7d64'
 ```
 
-## ▶️ How to automatically stash while rebasing or merging
+## How to automatically stash while rebasing or merging
 Rebase your branch onto main. To do so with automatic stashing and unstashing, use the `--autostash` option:
 ```
 git rebase -i main --autostash
@@ -451,12 +451,12 @@ git config --global merge.autoStash true
 ```
 Equally, use `--no-autostash` to disable the behaviour for a particular git merge invocation.
 
-## ▶️ Check for missing commits from a remote
+## Check for missing commits from a remote
 ```bash
 git rev-list HEAD..origin/master
 ```
 
-## ▶️ Comparing generated files before and after ahanges with git diff
+## Comparing generated files before and after ahanges with git diff
 
 ```bash
 # move to previous commit from HEAD
@@ -471,12 +471,12 @@ bundle exec jekyll build
 git diff --no-index _site_old _site
 ```
 
-## ▶️ How to run a rommand on many files in a git repository
+## How to run a rommand on many files in a git repository
 ```bash
 git ls-files -- '*.py' | xargs wc -l
 ```
 
-## ▶️ Find usage for specific codes
+## Find usage for specific codes
 ```bash
 git grep splash
 # limit the search
@@ -490,7 +490,7 @@ git log -p --stat -S splash -- '*.html' '*.js'
 git log -p --stat --pickaxe-regex -S '\bsplash\b'
 ```
 
-## ▶️ Check history with `git blame`
+## Check history with `git blame`
 ```bash
 git blame -- example/static/main.css
 git show 1234abcdef
@@ -498,7 +498,7 @@ git show 1234abcdef
 git blame 1234abcdef~1 -- example/static/main.css
 ```
 
-## ▶️ Rebase stacked branches
+## Rebase stacked branches
 Imagine you have this situation, most recent commits first:
 ```
 * e67fe90 Add deployment (main)
@@ -531,7 +531,7 @@ Now both branches live on top of the latest commit on `main`:
 * 86e3722 Set up Django
 ```
 
-## ▶️ How to add changes to stacked branches
+## How to add changes to stacked branches
 Imagine you had that same initial situation:
 ```
 bc63397 Add deployment (HEAD -> main)
@@ -620,7 +620,7 @@ This will add the option in your `~/.gitconfig` file like so:
     updateRefs = true
 ```
 
-## ▶️ How to skip hooks
+## How to skip hooks
 **Skip most hooks with `--no-verify`**
 
 Git lets you bypass most hooks with a `--no-verify` option on triggering commands. For example, you can use `commit --no-verify` to skip the pre-commit hook:
@@ -632,7 +632,7 @@ Uniquely among such commands, git commit supports `-n` as a short option for `--
 git commit -nm "double hack da prototype"
 ```
 
-## ▶️ Hooks
+## Hooks
 Path: `<repo>/.git/hooks/`
 
 **Pre-commit**
